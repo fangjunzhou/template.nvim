@@ -1,0 +1,11 @@
+# Environment
+.direnv/
+
+# Neovim logs
+.nvimlog
+nvim.log
+
+# Artifacts
+doc/tags
+result
+result-*
