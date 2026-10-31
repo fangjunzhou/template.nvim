@@ -82,6 +82,8 @@ whenever those processes or requirements change.
 
 Run `nix run .#dev` to open your existing Neovim with this checkout loaded and
 `setup()` called. Restart after edits. Nix supplies Neovim if none is installed.
+After configuration loads, the launcher prioritizes this checkout, clears cached
+plugin modules, and re-registers local commands to replace any installed copy.
 Run `nix run .#test` for Plenary/Busted unit tests. Use `*_spec.lua` filenames.
 Plenary is a test dependency only. There is no build step.
 Run `nix run .#docs` after README changes to regenerate `doc/template.txt` and

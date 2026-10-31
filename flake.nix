@@ -39,6 +39,8 @@
           editor="$(command -v nvim || true)"
           exec "''${editor:-${pkgs.neovim}/bin/nvim}" \
             -c 'lua vim.opt.runtimepath:prepend(vim.env.TEMPLATE_ROOT)' \
+            -c 'lua for name in pairs(package.loaded) do if name == "template" or name:match("^template%.") then package.loaded[name] = nil end end' \
+            -c 'lua vim.g.loaded_template = nil' \
             -c 'runtime plugin/template.lua' \
             -c 'lua require("template").setup()' \
             "$@"
